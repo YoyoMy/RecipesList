@@ -5,5 +5,9 @@ User stories:
 1. As a user I want to view different recipes so that I can decide on what to cook.  
 2. As a user I want to add new recipes so that other people can cook what I cna offer.   
 3. As a user I want to filet recipes by tags, calories, macros so that I will have better offers for my needs. 
-4. As a user I want to order recipes by calories. 
-5.As a user I want to add recipes to my favourites. 
+4. As a user I want to order recipes by calories.  
+5.As a user I want to add recipes to my favourites.  
+6. As a user I want to rate recipes so that I will let other know if its a good one.  
+7. As a user I want to comment recipes so that I can suggest improvements or ask questions.  
+8. As a user I want to be able to log in so that my fav resipes will be saved.  
+
