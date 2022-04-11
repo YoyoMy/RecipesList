@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".RecipeViewActivity">
+
+                <include layout="@layout/appbar_layout"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="?attr/actionBarSize">
+
+                        <LinearLayout
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:id="@+id/recipeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:background="@drawable/noimage"
+                            android:orientation="vertical"
+                            android:gravity="bottom">
+                                <TextView
+                                    android:id="@+id/recipeViewTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="@dimen/nav_header_vertical_spacing"
+                                    android:text="@string/no_name"
+                                    android:textSize="40sp">
+                                </TextView>
+                        </LinearLayout>
+                        <LinearLayout
+                            app:layout_constraintTop_toBottomOf="@id/recipeView"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:orientation="vertical">
+                                <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/description"
+                                    android:textSize="40sp">
+                                </TextView>
+                                <TextView
+                                    android:id="@+id/recipeViewDescription"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/no_name">
+                                </TextView>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/calories"
+                                    android:textSize="40sp">
+                                </TextView>
+                                <TextView
+                                    android:id="@+id/recipeViewCals"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/no_name">
+                                </TextView>
+                        </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

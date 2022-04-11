@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/kitchen_book_64"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/kitchen_book_64"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecipesList">
         <activity
@@ -17,6 +17,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".RecipeViewActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 
