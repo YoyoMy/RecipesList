@@ -14,4 +14,8 @@
     <string name="no_name">No name</string>
     <string name="description">Description</string>
     <string name="calories">Calories</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="on">On</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.example.recipeslist;
 
-public class Recipe {
+import androidx.lifecycle.MutableLiveData;
+
+public class Recipe extends MutableLiveData<Recipe> {
     private String title;
     private String description;
     private int cals;

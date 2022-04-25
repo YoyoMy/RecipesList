@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,71 +29,61 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recipeList;
-    RecipeAdapter recipeAdapter;
+    MainActivityViewModel recipeViewModel;
     NavController navController;
     AppBarConfiguration appBarConfiguration;
     DrawerLayout drawerLayout;
     NavigationView navigationDrawer;
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initViews();
-        //setupNavigation();
-        setRecipes();
+        setupNavigation();
 
+        //recipeViewModel = new ViewModelProvider((this)).get(MainActivityViewModel.class);
+        //recipeViewModel
     }
+
     private void initViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationDrawer = findViewById(R.id.navigation_drawer);
-       // bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        recipeList = findViewById(R.id.rv);
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+
 
     }
 
     private void setupNavigation() {
-        //navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         setSupportActionBar(toolbar);
 
-        appBarConfiguration = new AppBarConfiguration.Builder()
+        //appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_all_recipes)
                 .setOpenableLayout(drawerLayout)
                 .build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-       // NavigationUI.setupWithNavController(bottomNavigationView, navController);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
         NavigationUI.setupWithNavController(navigationDrawer, navController);
-        //setBottomNavigationVisibility();
+        setBottomNavigationVisibility();
     }
-    private void setRecipes()
-    {
-        recipeList.hasFixedSize();
-        recipeList.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Recipe> recipes = new ArrayList<>();
-        recipes.add(new Recipe("Pizza", "Italian, tasty pizza", 555, R.drawable.noimage));
-        recipes.add(new Recipe("Pasta", "Italian, tasty pasta", 600, R.drawable.noimage));
-        recipes.add(new Recipe("Kebabcheta", "Bulgarian, tasty kebabcheta", 86, R.drawable.noimage));
-        recipeAdapter = new RecipeAdapter(recipes);
-
-        recipeAdapter.setOnClickListener(recipe -> {
-            Toast.makeText(this, recipe.getDescription(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, RecipeViewActivity.class);
-            intent.putExtra("recipe",recipe.toString());
-            startActivity(intent);
+    private void setBottomNavigationVisibility() {
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            final int id = destination.getId();
+            if (id == R.id.nav_all_recipes) {
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            } else {
+                bottomNavigationView.setVisibility(View.GONE);
+            }
         });
-
-        recipeList.setAdapter(recipeAdapter);
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
@@ -100,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START);
         else
-            super.onBackPressed();
+            //super.onBackPressed();
+            getSupportFragmentManager().popBackStack();
     }
 
     @Override
@@ -111,6 +106,32 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==navController.getCurrentDestination().getId())
+        {
+            return true;
+        }
+       /*if(item.getTitle().equals("Settings"))
+        {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.nav_host_fragment, new SettingsFragment())
+                    .commit();
+
+        }*/
         return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
     }
+    public void changeFragment(int fragment, Bundle data)
+    {
+        navController.navigate(fragment, data);
+        /*if(fragment == R.id.recipeDetailFragment)
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.nav_host_fragment,RecipeDetailFragment.class, data)
+                .addToBackStack("recipe")
+                .commit();*/
+        //getSupportFragmentManager().beginTransaction().replace(fragment,data).addToBackStack("recipe").commit();
+    }
+
+
 }

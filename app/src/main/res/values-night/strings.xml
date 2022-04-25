@@ -14,4 +14,6 @@
     <string name="no_name">No name</string>
     <string name="description">Description</string>
     <string name="calories">Calories</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="on">On</string>
 </resources>

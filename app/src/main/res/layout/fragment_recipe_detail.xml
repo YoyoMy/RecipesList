@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RecipeDetailFragment">
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/recipeView"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/noimage">
+
+        </ImageView>
+        <TextView
+            android:id="@+id/recipeViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="no name"
+            android:textSize="40sp">
+        </TextView>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="description"
+            android:textSize="40sp">
+        </TextView>
+        <TextView
+            android:id="@+id/recipeViewDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="no_name">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="calories"
+            android:textSize="40sp">
+        </TextView>
+        <TextView
+            android:id="@+id/recipeViewCals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="no_name">
+        </TextView>
+    </LinearLayout>
+</FrameLayout>
