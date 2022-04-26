@@ -2,23 +2,27 @@ package com.example.recipeslist;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -37,14 +41,23 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        recipeViewModel = new ViewModelProvider((this)).get(MainActivityViewModel.class);
+        recipeViewModel.init();
+        checkIfSignedIn();
         setupNavigation();
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
+        Boolean name = sharedPreferences.getBoolean("theme", true);
+        if(!name) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
-        //recipeViewModel = new ViewModelProvider((this)).get(MainActivityViewModel.class);
+        //
         //recipeViewModel
     }
 
@@ -55,6 +68,19 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
 
+    }
+    private void checkIfSignedIn() {
+        recipeViewModel.getCurrentUser().observe(this, user -> {
+            if (user != null) {
+                String message = "Welcome " + user.getDisplayName();
+                //welcomeMessage.setText(message);
+            } else
+                startLoginActivity();
+        });
+    }
+    private void startLoginActivity() {
+        startActivity(new Intent(this, SigninActivity.class));
+        finish();
     }
 
     private void setupNavigation() {
@@ -72,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationDrawer, navController);
         setBottomNavigationVisibility();
     }
+
 
     private void setBottomNavigationVisibility() {
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
@@ -94,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START);
         else
-            //super.onBackPressed();
+            super.onBackPressed();
             getSupportFragmentManager().popBackStack();
     }
 
@@ -106,8 +133,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==navController.getCurrentDestination().getId())
+        if(item.getItemId()==R.id.logout)
         {
+            recipeViewModel.signOut();
             return true;
         }
        /*if(item.getTitle().equals("Settings"))
@@ -119,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
 
         }*/
         return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
+    }
+    public void signOut(View v) {
+        recipeViewModel.signOut();
     }
     public void changeFragment(int fragment, Bundle data)
     {
