@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setupNavigation();
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
-        Boolean name = sharedPreferences.getBoolean("theme", true);
+        boolean name = sharedPreferences.getBoolean("theme", true);
         if(!name) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
