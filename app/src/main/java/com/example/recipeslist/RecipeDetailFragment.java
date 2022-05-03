@@ -18,20 +18,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.recipeslist.data.Recipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class RecipeDetailFragment extends Fragment {
 
-    NavController navController;
-    AppBarConfiguration appBarConfiguration;
-    DrawerLayout drawerLayout;
-    NavigationView navigationDrawer;
-    BottomNavigationView bottomNavigationView;
-    Toolbar toolbar;
     TextView description;
     TextView calories;
     TextView title;
+    TextView servings;
     ImageView image;
     private MainActivityViewModel recipeViewModdel;
 
@@ -47,6 +43,7 @@ public class RecipeDetailFragment extends Fragment {
         description = view.findViewById(R.id.recipeViewDescription);
         calories = view.findViewById(R.id.recipeViewCals);
         title = view.findViewById(R.id.recipeViewTitle);
+        servings = view.findViewById(R.id.recipeViewServings);
 
     }
     @Override
@@ -68,10 +65,11 @@ public class RecipeDetailFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        LiveData<Recipe> obj = recipeViewModdel.getSelectedRecipe();//Recipe.toObject(result);
-        Recipe recipe = (Recipe)obj.getValue();
+        //LiveData<Recipe> obj = recipeViewModdel.getSelectedRecipe();//Recipe.toObject(result);
+        Recipe recipe = recipeViewModdel.getSelectedRecipe();//(Recipe)obj.getValue();
         title.setText(recipe.getTitle());
         description.setText(recipe.getDescription());
-        calories.setText(""+recipe.getCals());
+        calories.setText(""+recipe.getCalories());
+        servings.setText(""+recipe.getServings());
     }
 }

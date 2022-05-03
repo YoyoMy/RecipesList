@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.recipeslist.data.Recipe;
+import com.example.recipeslist.data.RecipeRepository;
+
 import java.util.ArrayList;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
@@ -33,7 +36,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         viewHolder.recipeTitle.setText(recipes.get(position).getTitle());
-        viewHolder.recipeCals.setText(""+recipes.get(position).getCals());
+        viewHolder.recipeCals.setText(""+recipes.get(position).getCalories());
         viewHolder.recipeImage.setImageResource(recipes.get(position).getImage());
     }
 

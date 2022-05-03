@@ -1,4 +1,4 @@
-package com.example.recipeslist;
+package com.example.recipeslist.data;
 
 import androidx.lifecycle.LiveData;
 

@@ -53,5 +53,17 @@
             android:layout_height="wrap_content"
             android:text="no_name">
         </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Servings"
+            android:textSize="40sp">
+        </TextView>
+        <TextView
+            android:id="@+id/recipeViewServings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="no_name">
+        </TextView>
     </LinearLayout>
 </FrameLayout>

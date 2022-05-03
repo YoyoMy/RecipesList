@@ -1,27 +1,43 @@
-package com.example.recipeslist;
+package com.example.recipeslist.data;
 
 import androidx.lifecycle.MutableLiveData;
 
-public class Recipe extends MutableLiveData<Recipe> {
+public class Recipe {
+    //private int id;
     private String title;
     private String description;
-    private int cals;
+    private int calories;
     private int image;
+    private int servings;
 
-    public Recipe(String title, String description, int cals, int image)
+    public Recipe()
+    {
+
+    }
+
+    public Recipe(String title, String description, int calories, int image, int servings)
     {
         setTitle(title);
-        setCals(cals);
+        setCalories(calories);
         setDescription(description);
         setImage(image);
+        setServings(servings);
     }
 
     public String getDescription() {
         return description;
     }
 
-    public int getCals() {
-        return cals;
+    public int getServings() {
+        return servings;
+    }
+
+    public void setServings(int servings) {
+        this.servings = servings;
+    }
+
+    public int getCalories() {
+        return calories;
     }
 
     public int getImage() {
@@ -36,8 +52,8 @@ public class Recipe extends MutableLiveData<Recipe> {
         this.description = description;
     }
 
-    public void setCals(int cals) {
-        this.cals = cals;
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 
     public void setImage(int image) {
@@ -50,11 +66,11 @@ public class Recipe extends MutableLiveData<Recipe> {
 
     @Override
     public String toString() {
-        return title + "/" + description + "/" + cals + "/" + image;
+        return title + "/" + description + "/" + calories + "/" + image;
     }
     public static Recipe toObject(String recipe)
     {
         String[] data = recipe.split("/");
-        return new Recipe(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]));
+        return new Recipe(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
     }
 }

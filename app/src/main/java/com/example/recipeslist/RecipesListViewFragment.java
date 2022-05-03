@@ -14,28 +14,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.recipeslist.data.Recipe;
+import com.example.recipeslist.data.RecipeRepository;
+
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RecipesListViewFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class RecipesListViewFragment extends Fragment {
 
     private RecyclerView recipeList;
     private RecipeAdapter recipeAdapter;
     private MainActivityViewModel recipeViewModel;
-    private FragmentManager fragmentManager;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         recipeViewModel = new ViewModelProvider(requireActivity()).get(MainActivityViewModel.class);
-
-
-
     }
 
     @Override
