@@ -7,7 +7,7 @@
     app:startDestination="@id/nav_all_recipes">
     <fragment
         android:id="@+id/nav_all_recipes"
-        android:name="com.example.recipeslist.RecipesListViewFragment"
+        android:name="com.example.recipeslist.ui.RecipesListViewFragment"
         android:label="All recipes"
         tools:layout="@layout/fragment_recipes_list_view">
         <action
@@ -18,17 +18,22 @@
     </fragment>
     <fragment
         android:id="@+id/recipeDetailFragment"
-        android:name="com.example.recipeslist.RecipeDetailFragment"
+        android:name="com.example.recipeslist.ui.RecipeDetailFragment"
         android:label="Details"
         tools:layout="@layout/fragment_recipe_detail" />
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.example.recipeslist.SettingsFragment"
+        android:name="com.example.recipeslist.ui.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.recipeslist.ProfileFragment"
+        android:name="com.example.recipeslist.ui.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.example.recipeslist.ui.AddRecipeFragment"
+        android:label="Add new recipe"
+        tools:layout="@layout/fragment_add_recipe" />
 </navigation>

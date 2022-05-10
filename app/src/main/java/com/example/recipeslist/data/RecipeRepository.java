@@ -1,28 +1,70 @@
 package com.example.recipeslist.data;
 
+import androidx.lifecycle.MutableLiveData;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 
 public class RecipeRepository {
     private RecipeLiveData recipe;
     private static RecipeRepository instance;
-    private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+    private MutableLiveData<ArrayList<Recipe>> recipes;
+    private FirebaseDatabase database;
+    ChildEventListener childEventListener;
+    Query query;
+    DatabaseReference myRef;
 
     private RecipeRepository() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://recipeslist-6bcdb-default-rtdb.europe-west1.firebasedatabase.app/");
-        DatabaseReference myRef = database.getReference();
+        database = FirebaseDatabase.getInstance("https://recipeslist-6bcdb-default-rtdb.europe-west1.firebasedatabase.app/");
+        myRef = database.getReference();
+        /*query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("recipes")
+                .limitToLast(50);*/
+        childEventListener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+                // ...
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
+                // ...
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                // ...
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
+                // ...
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // ...
+            }
+        };
+       /* query.addChildEventListener(childEventListener);*/
+        /*DatabaseReference myRef = database.getReference();
+        recipes = new MutableLiveData<>();
         myRef.addChildEventListener(new ChildEventListener() {
 
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ArrayList<Recipe> recipes1 = new ArrayList<>();
                 for(DataSnapshot shot : dataSnapshot.getChildren())
                 {
-                    recipes.add(shot.getValue(Recipe.class));
+                    recipes1.add(shot.getValue(Recipe.class));
                 }
+                recipes.setValue(recipes1);
             }
 
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
@@ -37,7 +79,7 @@ public class RecipeRepository {
 
             public void onCancelled(DatabaseError databaseError) {}
 
-        });
+        });*/
 
        // myRef.child("recipes").push().setValue(new Recipe("Kebabcheta", "Bulgarian, tasty kebabcheta", 86, R.drawable.noimage));
 
@@ -49,11 +91,19 @@ public class RecipeRepository {
         return instance;
     }
 
+    public void saveRecipe(Recipe recipe)
+    {
+        myRef.child("recipes").push().setValue(recipe);
+    }
+    public DatabaseReference getMyRef() {
+        return myRef;
+    }
+
     public RecipeLiveData getRecipe() {
         return recipe;
     }
 
-    public ArrayList<Recipe> getAllRecipes()
+    public MutableLiveData<ArrayList<Recipe>> getAllRecipes()
     {
         return recipes;
     }

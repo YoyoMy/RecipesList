@@ -1,4 +1,4 @@
-package com.example.recipeslist;
+package com.example.recipeslist.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -18,9 +18,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
+import com.example.recipeslist.MainActivityViewModel;
+import com.example.recipeslist.R;
 import com.example.recipeslist.data.RecipeRepository;
+import com.example.recipeslist.ui.SigninActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationDrawer;
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
+    FloatingActionButton plus;
 
 
     @Override
@@ -41,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
         recipeViewModel = new ViewModelProvider((this)).get(MainActivityViewModel.class);
-        recipeViewModel.init();
+
+
         setupNavigation();
         checkIfSignedIn();
         SharedPreferences sharedPreferences =
@@ -49,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
         boolean name = sharedPreferences.getBoolean("theme", true);
         if(!name) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        plus = findViewById(R.id.floating_action_button);
+        plus.show();
+        plus.setOnClickListener(v ->{
+               /* Bundle b = new Bundle();
+                b.putString("add", "recipe");*/
+            this.changeFragment(R.id.addRecipeFragment, null);
+            plus.hide();
+        }
+        );
 
     }
 

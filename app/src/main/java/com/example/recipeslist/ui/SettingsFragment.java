@@ -1,4 +1,4 @@
-package com.example.recipeslist;
+package com.example.recipeslist.ui;
 
 import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import com.example.recipeslist.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
     SwitchPreferenceCompat switchPreferenceCompat;

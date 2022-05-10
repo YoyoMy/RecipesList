@@ -16,4 +16,7 @@
     <string name="calories">Calories</string>
     <string name="dark_theme">Dark Theme</string>
     <string name="on">On</string>
+    <string name="servings">Servings</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
 </resources>

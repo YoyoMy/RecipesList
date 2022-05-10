@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.RecipeDetailFragment">
+    tools:context=".ui.AddRecipeFragment">
     <LinearLayout
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
@@ -14,21 +14,19 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp">
-        <ImageView
-            android:id="@+id/recipeViewImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            >
-
-        </ImageView>
         <TextView
             android:id="@+id/recipeViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="@string/no_name"
+            android:text="@string/name"
             android:textSize="40sp">
         </TextView>
+        <EditText
+            android:id="@+id/recipeAddName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
         <TextView
 
             android:layout_width="match_parent"
@@ -36,35 +34,39 @@
             android:text="@string/description"
             android:textSize="40sp">
         </TextView>
-        <TextView
-            android:id="@+id/recipeViewDescription"
+        <EditText
+            android:id="@+id/recipeAddDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/no_name">
-        </TextView>
+            android:layout_height="wrap_content">
+        </EditText>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/calories"
             android:textSize="40sp">
         </TextView>
-        <TextView
-            android:id="@+id/recipeViewCals"
+        <EditText
+            android:id="@+id/recipeAddCalories"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/no_name">
-        </TextView>
+            android:layout_height="wrap_content">
+        </EditText>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/servings"
             android:textSize="40sp">
         </TextView>
-        <TextView
-            android:id="@+id/recipeViewServings"
+        <EditText
+            android:id="@+id/recipeAddServings"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </EditText>
+        <Button
+            android:id="@+id/save_recipe"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_name">
-        </TextView>
+            android:text="@string/save"
+            android:layout_gravity="right"
+            ></Button>
     </LinearLayout>
 </FrameLayout>

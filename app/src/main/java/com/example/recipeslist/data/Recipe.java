@@ -64,7 +64,7 @@ public class Recipe {
         this.title = title;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return title + "/" + description + "/" + calories + "/" + image;
     }
@@ -72,5 +72,5 @@ public class Recipe {
     {
         String[] data = recipe.split("/");
         return new Recipe(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
-    }
+    }*/
 }

@@ -3,6 +3,7 @@ package com.example.recipeslist;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +12,19 @@ import android.widget.TextView;
 
 import com.example.recipeslist.data.Recipe;
 import com.example.recipeslist.data.RecipeRepository;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.ArrayList;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
+public class RecipeAdapter extends FirebaseRecyclerAdapter<Recipe, RecipeAdapter.ViewHolder> {
 
-    private ArrayList<Recipe> recipes;
+   // ArrayList<Recipe> recipes;
     private OnClickListener onClickListener;
+    Recipe recipe;
 
-    RecipeAdapter(ArrayList<Recipe> recipes) {
-        this.recipes = recipes;
+    public RecipeAdapter(@NonNull FirebaseRecyclerOptions<Recipe> options) {
+        super(options);
     }
 
     public void setOnClickListener(OnClickListener listener) {
@@ -34,14 +38,19 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    /*public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         viewHolder.recipeTitle.setText(recipes.get(position).getTitle());
-        viewHolder.recipeCals.setText(""+recipes.get(position).getCalories());
+        viewHolder.recipeCals.setText(""+recipes.getCalories());
         viewHolder.recipeImage.setImageResource(recipes.get(position).getImage());
-    }
+    }*/
 
-    public int getItemCount() {
-        return recipes.size();
+
+    @Override
+    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Recipe model) {
+        holder.recipeTitle.setText(model.getTitle());
+        holder.recipeCals.setText(""+model.getCalories());
+        holder.recipeImage.setImageResource(model.getImage());
+        holder.setRecipe(model);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,6 +58,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         TextView recipeTitle;
         TextView recipeCals;
         ImageView recipeImage;
+        Recipe recipe;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -56,8 +66,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             recipeCals = itemView.findViewById(R.id.recipeCals);
             recipeImage = itemView.findViewById(R.id.recipeImage);
             itemView.setOnClickListener(v -> {
-                onClickListener.onClick(recipes.get(getAdapterPosition()));
+                onClickListener.onClick(recipe);
             });
+        }
+        private void setRecipe(Recipe recipe)
+        {
+            this.recipe = recipe;
         }
     }
 

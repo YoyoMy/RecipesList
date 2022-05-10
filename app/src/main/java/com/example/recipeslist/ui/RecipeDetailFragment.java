@@ -1,4 +1,4 @@
-package com.example.recipeslist;
+package com.example.recipeslist.ui;
 
 import android.os.Bundle;
 
@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.recipeslist.MainActivityViewModel;
+import com.example.recipeslist.R;
 import com.example.recipeslist.data.Recipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -44,6 +46,7 @@ public class RecipeDetailFragment extends Fragment {
         calories = view.findViewById(R.id.recipeViewCals);
         title = view.findViewById(R.id.recipeViewTitle);
         servings = view.findViewById(R.id.recipeViewServings);
+        image = view.findViewById(R.id.recipeViewImage);
 
     }
     @Override
@@ -71,5 +74,8 @@ public class RecipeDetailFragment extends Fragment {
         description.setText(recipe.getDescription());
         calories.setText(""+recipe.getCalories());
         servings.setText(""+recipe.getServings());
+        if(recipe.getImage() == 0)
+            image.setImageResource(R.drawable.noimage);
+        else image.setImageResource(recipe.getImage());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.recipeslist;
+package com.example.recipeslist.ui;
 
 import android.os.Bundle;
 
@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.recipeslist.MainActivityViewModel;
+import com.example.recipeslist.R;
 
 
 public class ProfileFragment extends Fragment {

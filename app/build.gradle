@@ -56,5 +56,6 @@ dependencies {
     //Firebase
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.1'
 }
 apply plugin: 'com.google.gms.google-services'
