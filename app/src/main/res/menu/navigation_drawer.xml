@@ -18,7 +18,7 @@
             android:title="@string/all_recipes" />
 
     </group>
-    <group android:id="@+id/tools">
+  <!--  <group android:id="@+id/tools">
 
         <item
             android:id="@+id/nav_type_register"
@@ -35,7 +35,7 @@
             android:icon="@drawable/sign_out"
             android:title="@string/log_out" />
     </group>
-
+-->
     <group android:id="@+id/other">
 
         <item
@@ -44,12 +44,12 @@
             android:title="@string/settings" />
 
         <item
-            android:id="@+id/nav_about"
+            android:id="@+id/aboutFragment"
             android:icon="@drawable/ic_baseline_info_24"
             android:title="@string/about" />
 
         <item
-            android:id="@+id/nav_help_and_feedback"
+            android:id="@+id/hekpAndFeedbackFragment"
             android:icon="@drawable/ic_baseline_chat_24"
             android:title="@string/help_and_feedback" />
     </group>

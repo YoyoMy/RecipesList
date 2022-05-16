@@ -27,44 +27,47 @@
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
             android:text="@string/no_name"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <TextView
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <TextView
             android:id="@+id/recipeViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_name">
+            android:text="@string/no_name"
+            android:textSize="20sp">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/calories"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <TextView
             android:id="@+id/recipeViewCals"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_name">
+            android:text="@string/no_name"
+            android:textSize="20sp">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/servings"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <TextView
             android:id="@+id/recipeViewServings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_name">
+            android:text="@string/no_name"
+            android:textSize="20sp">
         </TextView>
     </LinearLayout>
 </FrameLayout>

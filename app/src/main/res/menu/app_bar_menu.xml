@@ -4,13 +4,13 @@
     <item
         android:id="@+id/search"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="Search"
+        android:title="@string/search"
         android:contentDescription=""
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/logout"
+        android:id="@+id/favourite"
         android:icon="@drawable/sign_out"
-        android:title="@string/log_out"
+        android:title="@string/favourite"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/nav_settings"

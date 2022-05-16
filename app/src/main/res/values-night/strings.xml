@@ -19,4 +19,6 @@
     <string name="servings">Servings</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
+    <string name="favourite">Favourite</string>
+    <string name="search">Search</string>
 </resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AboutFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reasoning for the project"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="I love cooking. But I also want to keep in shape. Therefore, apart from having workouts every day I also keep track of my calories intake and my meals macros. I have calculated that for my goal I have to eat approximately 1200kals per day. I also have to cut down the fat and increase the protein in my diet. That makes it hard sometimes to come up with an idea on what to cook. Hense the idea for this app." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Who am I?"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="I'm Yoana - a 4th semester software engineering student at VIA UC Horsens"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About the development"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This project is still under development."
+            android:textSize="10dp"
+            android:layout_marginBottom="10dp">
+
+        </TextView>
+    </LinearLayout>
+
+
+</FrameLayout>

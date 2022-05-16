@@ -36,4 +36,14 @@
         android:name="com.example.recipeslist.ui.AddRecipeFragment"
         android:label="Add new recipe"
         tools:layout="@layout/fragment_add_recipe" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.recipeslist.ui.AboutFragment"
+        android:label="@string/about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/hekpAndFeedbackFragment"
+        android:name="com.example.recipeslist.ui.HekpAndFeedbackFragment"
+        android:label="Help and Feedback"
+        tools:layout="@layout/fragment_hekp_and_feedback" />
 </navigation>

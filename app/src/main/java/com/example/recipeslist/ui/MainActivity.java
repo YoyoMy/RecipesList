@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.recipeslist.MainActivityViewModel;
 import com.example.recipeslist.R;
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         recipeViewModel.getCurrentUser().observe(this, user -> {
             if (user != null) {
                 String message = "Welcome " + user.getDisplayName();
-                //welcomeMessage.setText(message);
+                Toast.makeText(this.getApplicationContext(), message, Toast.LENGTH_SHORT ).show();
             } else
                 startLoginActivity();
         });
@@ -94,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
     private void setupNavigation() {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         setSupportActionBar(toolbar);
-
-        //appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_all_recipes)
                 .setOpenableLayout(drawerLayout)
@@ -115,12 +114,14 @@ public class MainActivity extends AppCompatActivity {
                 bottomNavigationView.setVisibility(View.VISIBLE);
             } else {
                 bottomNavigationView.setVisibility(View.GONE);
+                plus.hide();
             }
         });
     }
 
     @Override
     public boolean onSupportNavigateUp() {
+        plus.show();
         return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
     }
 
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         else
             super.onBackPressed();
             getSupportFragmentManager().popBackStack();
+            plus.show();
     }
 
     @Override
@@ -146,14 +148,7 @@ public class MainActivity extends AppCompatActivity {
             recipeViewModel.signOut();
             return true;
         }
-       /*if(item.getTitle().equals("Settings"))
-        {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.nav_host_fragment, new SettingsFragment())
-                    .commit();
-
-        }*/
+        plus.hide();
         return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
     }
     public void signOut(View v) {
@@ -161,15 +156,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void changeFragment(int fragment, Bundle data)
     {
+        plus.hide();
         navController.navigate(fragment, data);
-        /*if(fragment == R.id.recipeDetailFragment)
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(R.id.nav_host_fragment,RecipeDetailFragment.class, data)
-                .addToBackStack("recipe")
-                .commit();*/
-        //getSupportFragmentManager().beginTransaction().replace(fragment,data).addToBackStack("recipe").commit();
     }
 
 

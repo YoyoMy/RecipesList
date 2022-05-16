@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.recipeslist.MainActivityViewModel;
 import com.example.recipeslist.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class ProfileFragment extends Fragment {

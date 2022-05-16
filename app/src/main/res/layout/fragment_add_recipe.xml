@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
             android:text="@string/name"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <EditText
             android:id="@+id/recipeAddName"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <EditText
             android:id="@+id/recipeAddDescription"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/calories"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <EditText
             android:id="@+id/recipeAddCalories"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/servings"
-            android:textSize="40sp">
+            android:textSize="30sp">
         </TextView>
         <EditText
             android:id="@+id/recipeAddServings"

@@ -22,6 +22,7 @@ import com.example.recipeslist.MainActivityViewModel;
 import com.example.recipeslist.R;
 import com.example.recipeslist.data.Recipe;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class RecipeDetailFragment extends Fragment {
