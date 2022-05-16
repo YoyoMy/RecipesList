@@ -24,10 +24,10 @@ User stories:
   
 Reading the user stories at the end of the semester, I was way too ambitios for an app, that I am working on my own for only a couple of month and learning Android at the same time :) Nevertheless, I am quite proud of the current state of the project. Would definitely improve it in the future.
 
-Referencees:
-https://github.com/KasperKnop : pick any repository, I took code from the ones that were given in the presentations
-https://developer.android.com/guide : guides, docs, I spent quite time here for almost all topics
-https://iconscout.com/icons : almosy all icons I took from here
-https://www.geeksforgeeks.org/how-to-populate-recyclerview-with-firebase-data-using-firebaseui-in-android-studio/ : for FirebaseRecyclerAdapter
-https://developer.android.com/guide/topics/ui/look-and-feel/darktheme : Dark Theme
+Referencees:  
+https://github.com/KasperKnop : pick any repository, I took code from the ones that were given in the presentations  
+https://developer.android.com/guide : guides, docs, I spent quite time here for almost all topics  
+https://iconscout.com/icons : almosy all icons I took from here  
+https://www.geeksforgeeks.org/how-to-populate-recyclerview-with-firebase-data-using-firebaseui-in-android-studio/ : for FirebaseRecyclerAdapter  
+https://developer.android.com/guide/topics/ui/look-and-feel/darktheme : Dark Theme  
 https://material.io/ : searched mainly for AppBar and Settings
