@@ -17,7 +17,7 @@ User stories:
 - [x] 5. As a user I would like to see a description (and maybe a video) on how to cook the meal.  
 - [ ] 6. As a user I want to filter recipes by tags, calories, macros so that I will have better offers for my needs. 
 - [ ] 7. As a user I want to order recipes by calories.  
-- [ ] 8. As a user I want to add recipes to my favourites.  
+- [x] 8. As a user I want to add recipes to my favourites.  
 - [ ] 9. As a user I want to rate recipes so that I will let other know if its a good one.  
 - [ ] 10. As a user I want to comment recipes so that I can suggest improvements or ask questions.  
 - [x] 11. As a user I want to be able to log in so that my preferences will be saved.  
@@ -27,7 +27,7 @@ Reading the user stories at the end of the semester, I was way too ambitios for 
 Referencees:  
 https://github.com/KasperKnop : pick any repository, I took code from the ones that were given in the presentations  
 https://developer.android.com/guide : guides, docs, I spent quite time here for almost all topics  
-https://iconscout.com/icons : almosy all icons I took from here  
+https://iconscout.com/icons : almost all icons and images I took from here  
 https://www.geeksforgeeks.org/how-to-populate-recyclerview-with-firebase-data-using-firebaseui-in-android-studio/ : for FirebaseRecyclerAdapter  
 https://developer.android.com/guide/topics/ui/look-and-feel/darktheme : Dark Theme  
 https://material.io/ : searched mainly for AppBar and Settings
