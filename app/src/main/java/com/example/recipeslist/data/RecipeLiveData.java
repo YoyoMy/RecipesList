@@ -8,7 +8,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-public class RecipeLiveData extends LiveData<Recipe> {
+/*public class RecipeLiveData extends LiveData<Recipe> {
     private final ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -37,4 +37,4 @@ public class RecipeLiveData extends LiveData<Recipe> {
         super.onInactive();
         databaseReference.removeEventListener(listener);
     }
-}
+}*/

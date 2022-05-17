@@ -33,11 +33,23 @@
             android:layout_marginBottom="10dp">
 
         </TextView>
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="I'm Yoana - a 4th semester software engineering student at VIA UC Horsens"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="I'm Yoana - a 4th semester software engineering student at VIA UC Horsens"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/linux_color">
+            </ImageView>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,7 +61,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This project is still under development."
-            android:textSize="10dp"
             android:layout_marginBottom="10dp">
 
         </TextView>

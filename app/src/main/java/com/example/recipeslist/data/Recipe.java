@@ -2,12 +2,17 @@ package com.example.recipeslist.data;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Recipe {
     //private int id;
+    @SerializedName("title")
     private String title;
+    @SerializedName("instructions")
     private String description;
     private int calories;
     private int image;
+    @SerializedName("servings")
     private int servings;
 
     public Recipe()
@@ -64,13 +69,4 @@ public class Recipe {
         this.title = title;
     }
 
-   /* @Override
-    public String toString() {
-        return title + "/" + description + "/" + calories + "/" + image;
-    }
-    public static Recipe toObject(String recipe)
-    {
-        String[] data = recipe.split("/");
-        return new Recipe(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]), Integer.parseInt(data[4]));
-    }*/
 }

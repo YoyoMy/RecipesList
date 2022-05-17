@@ -3,17 +3,24 @@ package com.example.recipeslist;
 import com.example.recipeslist.data.Recipe;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class RecipeResponse {
+    @SerializedName("0")
+    String recipe;
+  /* @SerializedName("id")
     private int id;
+    @SerializedName("title")
     private String title;
     @SerializedName("instructions")
-    private String description;
+    private String instructions;
+    @SerializedName("servings")
     private int servings;
-    private int image;
-    private int cals;
-
-    public Recipe getRecipe()
+    //private int image;
+    //private int cals;
+*/
+   public Recipe getRandomRecipe()
     {
-        return new Recipe(title, description, cals, image, servings);
+        return null;//new Recipe(title, instructions, 0, 0, servings);
     }
 }

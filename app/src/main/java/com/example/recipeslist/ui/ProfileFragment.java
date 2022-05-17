@@ -1,5 +1,6 @@
 package com.example.recipeslist.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.recipeslist.MainActivityViewModel;
 import com.example.recipeslist.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,7 +36,11 @@ public class ProfileFragment extends Fragment {
         name = view.findViewById(R.id.user_name);
         image = view.findViewById(R.id.user_photo);
         name.setText(recipeViewModel.getCurrentUser().getValue().getDisplayName());
-        //image.setImageResource(recipeViewModel.getCurrentUser().getValue().getPhotoUrl().getPort());
+        Uri imageUri = recipeViewModel.getCurrentUser().getValue().getPhotoUrl();
+
+        if(imageUri != null) Glide.with(requireActivity()).load(imageUri).into(image);
+
+        else image.setImageResource(R.drawable.user_signin);
     }
 
     @Override

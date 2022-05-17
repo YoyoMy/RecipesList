@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/search"
@@ -7,11 +8,11 @@
         android:title="@string/search"
         android:contentDescription=""
         app:showAsAction="ifRoom" />
-    <item
+  <!--  <item
         android:id="@+id/favourite"
         android:icon="@drawable/sign_out"
         android:title="@string/favourite"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"/>-->
     <item
         android:id="@+id/nav_settings"
         android:orderInCategory="100"

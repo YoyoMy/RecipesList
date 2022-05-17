@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public class RecipeAdapter extends FirebaseRecyclerAdapter<Recipe, RecipeAdapter.ViewHolder> {
 
-   // ArrayList<Recipe> recipes;
     private OnClickListener onClickListener;
     Recipe recipe;
 
@@ -38,18 +37,11 @@ public class RecipeAdapter extends FirebaseRecyclerAdapter<Recipe, RecipeAdapter
         return new ViewHolder(view);
     }
 
-    /*public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.recipeTitle.setText(recipes.get(position).getTitle());
-        viewHolder.recipeCals.setText(""+recipes.getCalories());
-        viewHolder.recipeImage.setImageResource(recipes.get(position).getImage());
-    }*/
-
-
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Recipe model) {
         holder.recipeTitle.setText(model.getTitle());
         holder.recipeCals.setText(""+model.getCalories());
-        holder.recipeImage.setImageResource(model.getImage());
+        //holder.recipeImage.setImageResource(model.getImage());
         holder.setRecipe(model);
     }
 

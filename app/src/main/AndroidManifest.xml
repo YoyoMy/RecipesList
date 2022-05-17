@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.recipeslist">
 
-    <application
+    <uses-permission android:name="android.permission.INTERNET" />
 
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/kitchen_book_64"
         android:label="@string/app_name"
@@ -21,8 +22,7 @@
         </activity>
         <activity
             android:name=".ui.SigninActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>

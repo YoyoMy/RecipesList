@@ -42,8 +42,18 @@
         android:label="@string/about"
         tools:layout="@layout/fragment_about" />
     <fragment
-        android:id="@+id/hekpAndFeedbackFragment"
-        android:name="com.example.recipeslist.ui.HekpAndFeedbackFragment"
+        android:id="@+id/helpAndFeedbackFragment"
+        android:name="com.example.recipeslist.ui.HelpAndFeedbackFragment"
         android:label="Help and Feedback"
-        tools:layout="@layout/fragment_hekp_and_feedback" />
+        tools:layout="@layout/fragment_help_and_feedback" />
+    <fragment
+        android:id="@+id/myRecipesFragment"
+        android:name="com.example.recipeslist.ui.MyRecipesFragment"
+        android:label="@string/my_recipes"
+        tools:layout="@layout/fragment_my_recipes" />
+    <fragment
+        android:id="@+id/randomRecipeFragment"
+        android:name="com.example.recipeslist.ui.RandomRecipeFragment"
+        android:label="Random recipe"
+        tools:layout="@layout/fragment_random_recipe" />
 </navigation>

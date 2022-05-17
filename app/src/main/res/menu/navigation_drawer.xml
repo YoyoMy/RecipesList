@@ -9,13 +9,18 @@
             android:icon="@drawable/user_64"
             android:title="@string/profile" />
         <item
-            android:id="@+id/nav_my_recipes"
-            android:icon="@drawable/kitchen_book_black_white"
-            android:title="@string/my_recipes" />
-        <item
             android:id="@+id/nav_all_recipes"
             android:icon="@drawable/list"
             android:title="@string/all_recipes" />
+        <item
+            android:id="@+id/myRecipesFragment"
+            android:icon="@drawable/kitchen_book_black_white"
+            android:title="@string/my_recipes" />
+        <item
+            android:id="@+id/randomRecipeFragment"
+            android:icon="@drawable/kitchen_book_black_white"
+            android:title="Random recipe" />
+
 
     </group>
   <!--  <group android:id="@+id/tools">
@@ -49,7 +54,7 @@
             android:title="@string/about" />
 
         <item
-            android:id="@+id/hekpAndFeedbackFragment"
+            android:id="@+id/helpAndFeedbackFragment"
             android:icon="@drawable/ic_baseline_chat_24"
             android:title="@string/help_and_feedback" />
     </group>

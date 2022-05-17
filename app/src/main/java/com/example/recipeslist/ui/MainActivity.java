@@ -45,38 +45,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initViews();
-        recipeViewModel = new ViewModelProvider((this)).get(MainActivityViewModel.class);
-
-
         setupNavigation();
         checkIfSignedIn();
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
+        setTheme();
+    }
+
+    private void setTheme()
+    {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this );
         boolean name = sharedPreferences.getBoolean("theme", true);
         if(!name) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-        plus = findViewById(R.id.floating_action_button);
-        plus.show();
-        plus.setOnClickListener(v ->{
-               /* Bundle b = new Bundle();
-                b.putString("add", "recipe");*/
-            this.changeFragment(R.id.addRecipeFragment, null);
-            plus.hide();
-        }
-        );
-
     }
-
     private void initViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationDrawer = findViewById(R.id.navigation_drawer);
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
-
+        recipeViewModel = new ViewModelProvider((this)).get(MainActivityViewModel.class);
+        plus = findViewById(R.id.floating_action_button);
+        plus.show();
+        plus.setOnClickListener(v ->{
+            this.changeFragment(R.id.addRecipeFragment, null);
+            plus.hide();
+        });
     }
     private void checkIfSignedIn() {
         recipeViewModel.getCurrentUser().observe(this, user -> {

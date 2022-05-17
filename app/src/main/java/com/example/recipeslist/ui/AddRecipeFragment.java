@@ -29,7 +29,7 @@ public class AddRecipeFragment extends Fragment {
     EditText title;
     EditText servings;
     Button save;
-    private MainActivityViewModel recipeViewModdel;
+    private MainActivityViewModel recipeViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,42 +39,36 @@ public class AddRecipeFragment extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        recipeViewModdel = new ViewModelProvider(requireActivity()).get(MainActivityViewModel.class);
+        recipeViewModel = new ViewModelProvider(requireActivity()).get(MainActivityViewModel.class);
+        setViews(view);
+        save.setOnClickListener(v->
+        {
+            Recipe recipe = new Recipe(title.getText().toString(), description.getText().toString(),
+                    Integer.parseInt(calories.getText().toString()),R.drawable.noimage,
+                    Integer.parseInt(servings.getText().toString()));
+            recipeViewModel.addRecipe(recipe);
+            clearText();
+            Toast.makeText(requireActivity().getApplicationContext(), "Recipe saved", Toast.LENGTH_SHORT ).show();
+        });
+
+    }
+    private void setViews(View view)
+    {
         description = view.findViewById(R.id.recipeAddDescription);
         calories = view.findViewById(R.id.recipeAddCalories);
         title = view.findViewById(R.id.recipeAddName);
         servings = view.findViewById(R.id.recipeAddServings);
         save = view.findViewById(R.id.save_recipe);
-        save.setOnClickListener(v->
-        {
-            Recipe recipe = new Recipe(title.getText().toString(), description.getText().toString(), Integer.parseInt(calories.getText().toString()),R.drawable.noimage, Integer.parseInt(servings.getText().toString()));
-            RecipeRepository.getInstance().saveRecipe(recipe);
-            description.setText("");
-            calories.setText("");
-            title.setText("");
-            servings.setText("");
-            Toast.makeText(requireActivity().getApplicationContext(), "Recipe saved", Toast.LENGTH_SHORT ).show();
-        });
-
+    }
+    private void clearText()
+    {
+        description.setText("");
+        calories.setText("");
+        title.setText("");
+        servings.setText("");
     }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-         /*   @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                // We use a String here, but any type that can be put in a Bundle is supported
-                String result = bundle.getString("recipe");
-                // Do something with the result
-
-                //image.setImageResource(obj.getImage());
-            }
-        });*/
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }

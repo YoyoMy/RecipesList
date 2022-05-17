@@ -6,21 +6,14 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.recipeslist.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
     SwitchPreferenceCompat switchPreferenceCompat;
